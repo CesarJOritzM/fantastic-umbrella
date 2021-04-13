@@ -1,5 +1,9 @@
-function Index() {
-  return <div>hello word</div>;
-}
+const Index = () => {
+  return (
+    <div>
+      <p>Hello!</p>
+    </div>
+  );
+};
 
 export default Index;
