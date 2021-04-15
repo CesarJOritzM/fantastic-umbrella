@@ -1,7 +1,9 @@
+import 'dotenv/config';
 import { createAuth } from '@keystone-next/auth';
 import { config, createSchema } from '@keystone-next/keystone/schema';
 import { User } from './schemas/User';
-import 'dotenv/config';
+import { Product } from './schemas/Product';
+import { ProductImage } from './schemas/ProductImage';
 import {
   withItemData,
   statelessSessions,
@@ -36,11 +38,16 @@ export default withAuth(
     db: {
       adapter: 'mongoose',
       url: databaseURL,
+      onConnect() {
+        console.log('Conected DB');
+      },
       // TODO: Add data seeding here
     },
     lists: createSchema({
       // Schema items go in here
       User,
+      Product,
+      ProductImage,
     }),
     ui: {
       // Show the UI only for poeple who pass this test
