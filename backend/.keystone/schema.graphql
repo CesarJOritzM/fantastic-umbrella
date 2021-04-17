@@ -146,10 +146,10 @@ input UsersCreateInput {
   data: UserCreateInput
 }
 
-input ProductImageRelateToManyInput {
-  create: [ProductImageCreateInput]
-  connect: [ProductImageWhereUniqueInput]
-  disconnect: [ProductImageWhereUniqueInput]
+input ProductImageRelateToOneInput {
+  create: ProductImageCreateInput
+  connect: ProductImageWhereUniqueInput
+  disconnect: ProductImageWhereUniqueInput
   disconnectAll: Boolean
 }
 
@@ -158,8 +158,7 @@ type Product {
   id: ID!
   name: String
   description: String
-  photo(where: ProductImageWhereInput, search: String, sortBy: [SortProductImagesBy!], orderBy: String, first: Int, skip: Int): [ProductImage!]!
-  _photoMeta(where: ProductImageWhereInput, search: String, sortBy: [SortProductImagesBy!], orderBy: String, first: Int, skip: Int): _QueryMeta
+  photo: ProductImage
   status: String
   price: Int
 }
@@ -207,15 +206,8 @@ input ProductWhereInput {
   description_not_ends_with_i: String
   description_in: [String]
   description_not_in: [String]
-
-  """ condition must be true for all nodes """
-  photo_every: ProductImageWhereInput
-
-  """ condition must be true for at least 1 node """
-  photo_some: ProductImageWhereInput
-
-  """ condition must be false for all nodes """
-  photo_none: ProductImageWhereInput
+  photo: ProductImageWhereInput
+  photo_is_null: Boolean
   status: String
   status_not: String
   status_contains: String
@@ -266,7 +258,7 @@ enum SortProductsBy {
 input ProductUpdateInput {
   name: String
   description: String
-  photo: ProductImageRelateToManyInput
+  photo: ProductImageRelateToOneInput
   status: String
   price: Int
 }
@@ -279,7 +271,7 @@ input ProductsUpdateInput {
 input ProductCreateInput {
   name: String
   description: String
-  photo: ProductImageRelateToManyInput
+  photo: ProductImageRelateToOneInput
   status: String
   price: Int
 }

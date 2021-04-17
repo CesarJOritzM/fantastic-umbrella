@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
-import Product from './Products';
+import Product from './Product';
 import ErrorMessage from './ErrorMessage';
 
 const ALL_PRODUCTS_QUERY = gql`
@@ -29,11 +29,8 @@ const ProductsListStyles = styled.div`
 
 const Products = () => {
   const { data, error, loading } = useQuery(ALL_PRODUCTS_QUERY);
-
   if (loading) return <p>Loading...</p>;
-
   if (error) return <ErrorMessage error={error.message} />;
-
   return (
     <div>
       <ProductsListStyles>

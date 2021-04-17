@@ -156,10 +156,10 @@ export type UsersCreateInput = {
   readonly data?: UserCreateInput | null;
 };
 
-export type ProductImageRelateToManyInput = {
-  readonly create?: ReadonlyArray<ProductImageCreateInput | null> | null;
-  readonly connect?: ReadonlyArray<ProductImageWhereUniqueInput | null> | null;
-  readonly disconnect?: ReadonlyArray<ProductImageWhereUniqueInput | null> | null;
+export type ProductImageRelateToOneInput = {
+  readonly create?: ProductImageCreateInput | null;
+  readonly connect?: ProductImageWhereUniqueInput | null;
+  readonly disconnect?: ProductImageWhereUniqueInput | null;
   readonly disconnectAll?: Scalars['Boolean'] | null;
 };
 
@@ -206,9 +206,8 @@ export type ProductWhereInput = {
   readonly description_not_ends_with_i?: Scalars['String'] | null;
   readonly description_in?: ReadonlyArray<Scalars['String'] | null> | null;
   readonly description_not_in?: ReadonlyArray<Scalars['String'] | null> | null;
-  readonly photo_every?: ProductImageWhereInput | null;
-  readonly photo_some?: ProductImageWhereInput | null;
-  readonly photo_none?: ProductImageWhereInput | null;
+  readonly photo?: ProductImageWhereInput | null;
+  readonly photo_is_null?: Scalars['Boolean'] | null;
   readonly status?: Scalars['String'] | null;
   readonly status_not?: Scalars['String'] | null;
   readonly status_contains?: Scalars['String'] | null;
@@ -258,7 +257,7 @@ export type SortProductsBy =
 export type ProductUpdateInput = {
   readonly name?: Scalars['String'] | null;
   readonly description?: Scalars['String'] | null;
-  readonly photo?: ProductImageRelateToManyInput | null;
+  readonly photo?: ProductImageRelateToOneInput | null;
   readonly status?: Scalars['String'] | null;
   readonly price?: Scalars['Int'] | null;
 };
@@ -271,7 +270,7 @@ export type ProductsUpdateInput = {
 export type ProductCreateInput = {
   readonly name?: Scalars['String'] | null;
   readonly description?: Scalars['String'] | null;
-  readonly photo?: ProductImageRelateToManyInput | null;
+  readonly photo?: ProductImageRelateToOneInput | null;
   readonly status?: Scalars['String'] | null;
   readonly price?: Scalars['Int'] | null;
 };
