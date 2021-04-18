@@ -1,14 +1,14 @@
 import Link from 'next/link';
-import Nav from './Nav';
 import styled from 'styled-components';
+import Nav from './Nav';
 
 const Logo = styled.h1`
-  font-size: 2rem;
+  font-size: 3rem;
   margin-left: 1rem;
   position: relative;
   z-index: 2;
   background: red;
-  transform: skew(-10deg);
+  transform: skew(-7deg);
   a {
     color: white;
     text-decoration: none;
@@ -19,18 +19,20 @@ const Logo = styled.h1`
 
 const HeaderStyles = styled.header`
   .bar {
-    border-bottom: 5px solid var(--black, black);
+    border-bottom: 10px solid var(--black, black);
     display: grid;
     grid-template-columns: auto 1fr;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
   }
+
   .sub-bar {
     display: grid;
     grid-template-columns: 1fr auto;
     border-bottom: 1px solid var(--black, black);
   }
 `;
+
 const Header = () => {
   return (
     <HeaderStyles>
@@ -38,11 +40,11 @@ const Header = () => {
         <Logo>
           <Link href='/'>Sick fits</Link>
         </Logo>
+        <Nav />
       </div>
       <div className='sub-bar'>
         <p>Search</p>
       </div>
-      <Nav />
     </HeaderStyles>
   );
 };
