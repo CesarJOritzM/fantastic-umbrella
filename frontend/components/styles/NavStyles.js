@@ -59,11 +59,13 @@ const NavStyles = styled.ul`
           width: calc(100% - 30px);
         }
       }
-
-      /* @media (max-width: 700px) {
-        width: calc(100% - 10px);
-      } */
     }
+  }
+  @media (max-width: 1300px) {
+    border-top: 1px solid var(--lightGrey);
+    width: 100%;
+    justify-content: center;
+    font-size: 1.5rem;
   }
 `;
 

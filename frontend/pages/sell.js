@@ -1,5 +1,7 @@
+import CreateProduct from '../components/CreateProduct';
+
 const Sell = () => {
-  return <div>Sell</div>;
+  return <CreateProduct />;
 };
 
 export default Sell;
