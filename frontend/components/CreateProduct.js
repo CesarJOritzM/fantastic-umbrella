@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 import useForm from '../lib/useForm';
 import ErrorMessage from './ErrorMessage';
 import { ALL_PRODUCTS_QUERY } from './Products';
+import Router from 'next/router';
 import Form from './styles/Form';
 
 const CREATE_PRODUCT_MUTATION = gql`
@@ -44,14 +45,18 @@ const CreateProduct = () => {
       refetchQueries: [{ query: ALL_PRODUCTS_QUERY }],
     }
   );
+
   return (
     <Form
       onSubmit={async (e) => {
         e.preventDefault();
-        console.log(inputs);
         // Submit the inputfields to the backend:
-        await createProduct();
+        const res = await createProduct();
         clearForm();
+        // Go to that product's page!
+        Router.push({
+          pathname: `/product/${res.data.createProduct.id}`,
+        });
       }}>
       <ErrorMessage error={error} />
       <fieldset disabled={loading} aria-busy={loading}>
