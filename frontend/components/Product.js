@@ -2,6 +2,7 @@ import Link from 'next/link';
 import ItemStyles from './styles/ItemStyles';
 import Title from './styles/Title';
 import PriceTag from './styles/PriceTag';
+import DeleteProduct from './DeleteProduct';
 import formatMoney from '../lib/formatMoney';
 
 const Product = ({ product }) => {
@@ -26,6 +27,7 @@ const Product = ({ product }) => {
           Edit ✏️
         </Link>
       </div>
+      <DeleteProduct id={product.id}>Delete</DeleteProduct>
     </ItemStyles>
   );
 };

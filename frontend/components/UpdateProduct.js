@@ -61,7 +61,6 @@ const UpdateProduct = ({ id }) => {
             price: inputs.price,
           },
         }).catch(console.error);
-        console.log(res);
         clearForm();
         Router.push({
           pathname: `/product/${res.data.updateProduct.id}`,

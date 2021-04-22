@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled, { createGlobalStyle } from 'styled-components';
+import Head from 'next/head';
 import Header from './Header';
 
 const GlobalStyles = createGlobalStyle`
@@ -49,11 +50,16 @@ const InnerStyles = styled.div`
 
 const Page = ({ children }) => {
   return (
-    <div>
-      <GlobalStyles />
-      <Header />
-      <InnerStyles>{children}</InnerStyles>
-    </div>
+    <>
+      <Head>
+        <title>Sick Fits</title>
+      </Head>
+      <div>
+        <GlobalStyles />
+        <Header />
+        <InnerStyles>{children}</InnerStyles>
+      </div>
+    </>
   );
 };
 
