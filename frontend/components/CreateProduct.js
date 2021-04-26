@@ -1,6 +1,6 @@
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
-import useForm from '../lib/useForm';
+import useForm from '../hooks/useForm';
 import ErrorMessage from './ErrorMessage';
 import { ALL_PRODUCTS_QUERY } from './Products';
 import Router from 'next/router';
