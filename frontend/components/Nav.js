@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { useUser } from '../../../Advanced-React-master/stepped-solutions/37/User';
+import { useUser } from '../hooks/useUser';
+import SignOut from './SignOut';
 import NavStyles from './styles/NavStyles';
 
 const Nav = () => {
@@ -13,6 +14,7 @@ const Nav = () => {
           <Link href='/sell'>Sell</Link>
           <Link href='/orders'>Orders</Link>
           <Link href='/account'>Account</Link>
+          <SignOut />
         </>
       )}
       {!user && (
