@@ -34,14 +34,13 @@ const Reset = ({ token }) => {
     ? data?.redeemUserPasswordResetToken
     : undefined;
 
-  console.log(error);
-
   const handleSubmit = async (e) => {
     e.preventDefault(); // stop the form from submitting
-    const res = await reset().catch(console.error);
+    await reset().catch(console.error);
     resetForm();
     // Send the email and password to the graphqlAPI
   };
+
   return (
     <Form method='POST' onSubmit={handleSubmit}>
       <h2>Reset Your Password</h2>

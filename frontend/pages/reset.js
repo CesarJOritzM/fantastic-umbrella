@@ -1,7 +1,7 @@
 import RequestReset from '../components/RequestReset';
 import Reset from '../components/Reset';
 
-export default function ResetPage({ query }) {
+const ResetPage = ({ query }) => {
   if (!query?.token) {
     return (
       <div>
@@ -16,4 +16,5 @@ export default function ResetPage({ query }) {
       <Reset token={query.token} />
     </div>
   );
-}
+};
+export default ResetPage;
