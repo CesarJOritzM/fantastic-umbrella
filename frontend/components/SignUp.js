@@ -2,6 +2,7 @@ import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import Form from './styles/Form';
 import useForm from '../hooks/useForm';
+import Router from 'next/router';
 import { CURRENT_USER_QUERY } from '../hooks/useUser';
 import Error from './ErrorMessage';
 
@@ -34,6 +35,9 @@ const SignUp = () => {
     e.preventDefault(); // stop the form from submitting
     await signup().catch(console.error);
     resetForm();
+    Router.push({
+      pathname: `/products`,
+    });
     // Send the email and password to the graphqlAPI
   };
   return (
