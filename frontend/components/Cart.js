@@ -4,6 +4,7 @@ import Supreme from './styles/Supreme';
 import CloseButton from './styles/CloseButton';
 import formatMoney from '../lib/formatMoney';
 import { useUser } from '../hooks/useUser';
+import RemoveFromCart from './RemoveFromCart';
 import { useCart } from '../hooks/useCart';
 import calcTotalPrice from '../lib/calcTotalPrice';
 
@@ -40,6 +41,7 @@ const CartItem = ({ cartItem }) => {
           {formatMoney(product.price * cartItem.quantity)}
         </p>
       </div>
+      <RemoveFromCart id={cartItem.id} />
     </CartItemStyles>
   );
 };

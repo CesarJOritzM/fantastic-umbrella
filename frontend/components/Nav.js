@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useUser } from '../hooks/useUser';
 import { useCart } from '../hooks/useCart';
 import SignOut from './SignOut';
+import CartCount from './CartCount';
 import NavStyles from './styles/NavStyles';
 
 const Nav = () => {
@@ -19,6 +20,12 @@ const Nav = () => {
           <SignOut />
           <button type='button' onClick={openCart}>
             My Cart
+            <CartCount
+              count={user.cart.reduce(
+                (tally, cartItem) => tally + cartItem.quantity,
+                0
+              )}
+            />
           </button>
         </>
       )}
