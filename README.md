@@ -1,6 +1,6 @@
 # fantastic-umbrella
 
-This is a Full-stack application created with Javascript 
+This is a Full-stack application created with Javascript, the application has a progress of 80%
 
 ### Front-end
   1) Next.js
